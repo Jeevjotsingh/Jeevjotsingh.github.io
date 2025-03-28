@@ -1,148 +1,51 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --accent-color: #e74c3c;
-    --text-primary: #2c3e50;
-    --text-secondary: #34495e;
-    --background-primary: #ecf0f1;
-    --background-secondary: #ffffff;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
+    --primary-color: #00b4db;
+    --secondary-color: #00d8ff;
+    --accent-color: #ff6b6b;
+    --background-dark: #121620;
+    --background-darker: #0e141f;
+    --text-primary: #e0e6ed;
+    --text-secondary: #8f9cb3;
+    --card-background: #1c2333;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--background-primary);
+    background-color: var(--background-dark);
     color: var(--text-primary);
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
 }
 
-.noise-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    z-index: 9999;
-}
-
-.cursor-trail {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: rgba(52, 152, 219, 0.2);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9998;
-}
-
 header {
-    background-color: var(--background-secondary);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    padding: 15px 50px;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-}
-
-.logo-icon {
-    font-size: 1.5em;
-    margin-right: 10px;
-    color: var(--primary-color);
-}
-
-.nav-menu {
-    display: flex;
-    gap: 20px;
+    background-color: var(--background-darker);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
 }
 
 .nav-link {
-    text-decoration: none;
     color: var(--text-secondary);
-    position: relative;
+}
+
+.nav-link.active {
+    color: var(--primary-color);
 }
 
 .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
     background-color: var(--primary-color);
-}
-
-.dark-mode-toggle {
-    position: relative;
-}
-
-.dark-mode-checkbox {
-    display: none;
-}
-
-.dark-mode-label {
-    display: block;
-    width: 40px;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 20px;
-    cursor: pointer;
-    position: relative;
-}
-
-.dark-mode-label::before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: white;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s;
-}
-
-.dark-mode-checkbox:checked + .dark-mode-label {
-    background-color: var(--primary-color);
-}
-
-.dark-mode-checkbox:checked + .dark-mode-label::before {
-    transform: translateX(20px);
 }
 
 .content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    background-color: transparent;
 }
 
-.hero-section {
-    text-align: center;
-    margin-bottom: 30px;
+.content-box {
+    background-color: var(--card-background);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .hero-section h1 {
-    font-size: 3em;
     color: var(--primary-color);
 }
 
@@ -150,88 +53,62 @@ nav {
     color: var(--text-secondary);
 }
 
-.image-container {
-    position: relative;
-    margin-bottom: 30px;
-}
-
 .main-image {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.content-box {
-    background-color: var(--background-secondary);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    filter: brightness(0.8) contrast(1.2);
 }
 
 .interactive-stats {
-    margin: 30px 0;
-}
-
-.stat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    text-align: center;
+    background-color: rgba(30,40,51,0.5);
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .stat-value {
-    font-size: 2.5em;
-    font-weight: 700;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
-.crypto-timeline {
-    margin-top: 40px;
-}
-
-.timeline-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.timeline-dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
+.crypto-timeline .timeline-dot {
     background-color: var(--primary-color);
-    margin-right: 20px;
 }
 
-footer {
-    background-color: var(--text-primary);
-    color: white;
-    padding: 30px;
-    text-align: center;
-}
-
-.newsletter-signup {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+.timeline-item .timeline-content h4 {
+    color: var(--secondary-color);
 }
 
 .newsletter-signup input {
-    padding: 10px;
-    width: 300px;
-    border: none;
-    border-radius: 5px 0 0 5px;
+    background-color: var(--background-darker);
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
 }
 
 .newsletter-signup button {
-    padding: 10px 20px;
     background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
+    color: var(--background-dark);
 }
 
+footer {
+    background-color: var(--background-darker);
+}
+
+.noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' fill='%230e141f'/%3E%3C/svg%3E");
+}
+
+.cursor-trail {
+    background: rgba(0, 216, 255, 0.2);
+}
+
+/* Additional dark mode specific tweaks */
+.dark-mode-label {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode-label::before {
+    background-color: var(--primary-color);
+}
+
+/* Maintain existing responsive and interactive styles */
 @media (max-width: 768px) {
     .stat-grid {
         grid-template-columns: 1fr;

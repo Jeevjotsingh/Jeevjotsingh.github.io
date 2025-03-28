@@ -3,32 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Currency</title>
+    <title>Digital Currency: Reshaping the Financial Landscape</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="noise-overlay"></div>
+    <div class="cursor-trail"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">₿</span>
+                <span class="logo-text">CryptoInsight</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Trends</a>
+                <a href="#" class="nav-link">Resources</a>
+                <a href="#" class="nav-link">Community</a>
+            </div>
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-switch" class="dark-mode-checkbox">
+                <label for="dark-mode-switch" class="dark-mode-label"></label>
+            </div>
+        </nav>
+    </header>
 
-<header>
-    <h1>Digital Currency</h1>
-</header>
+    <main>
+        <div class="content-container">
+            <div class="hero-section">
+                <h1>The Digital Currency Revolution</h1>
+                <h2>Transforming Money in the Digital Age</h2>
+            </div>
 
-<main>
-    <section class="content-box">
-        <img src="https://images.livemint.com/img/2022/08/11/600x338/Digital_Currencies_1660189785051_1660189785295_1660189785295.JPG" alt="Digital Currency Image" class="currency-img">
-        <div class="text-box">
-            <p>
-                Digital currency is a form of money that exists only in electronic form. Unlike physical cash, it is transacted 
-                digitally through computer networks. Cryptocurrencies such as Bitcoin, Ethereum, and central bank digital currencies (CBDCs) 
-                are examples of digital currencies. They offer faster transactions, lower costs, and increased security, but also 
-                present challenges such as volatility and regulatory concerns.
-            </p>
+            <div class="image-container">
+                <img src="
+https://images.livemint.com/img/2022/08/11/600x338/Digital_Currencies_1660189785051_1660189785295_1660189785295.JPG" alt="Digital Currency Ecosystem" class="main-image">
+                <div class="image-overlay">
+                    <div class="overlay-text">Decentralizing Financial Boundaries</div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="content-box">
+                    <h3>Redefining Financial Transactions</h3>
+                    <p>Digital currencies represent a groundbreaking shift in how we perceive and utilize money. Unlike traditional currencies controlled by central banks, these decentralized digital assets leverage blockchain technology to create transparent, secure, and borderless financial systems. From Bitcoin's pioneering blockchain to Ethereum's smart contract capabilities, digital currencies are not just alternative payment methods but transformative technologies that challenge existing financial paradigms, offering unprecedented levels of financial inclusion, reduced transaction costs, and enhanced privacy.</p>
+                    
+                    <div class="interactive-stats">
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <div class="stat-value" data-target="2.3">0</div>
+                                <div class="stat-label">Trillion Market Cap</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" data-target="420">0</div>
+                                <div class="stat-label">Million Users Globally</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" data-target="19000">0</div>
+                                <div class="stat-label">Cryptocurrencies Exist</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="crypto-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2009: Bitcoin Emerges</h4>
+                                <p>Satoshi Nakamoto introduces the first decentralized cryptocurrency</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2015: Ethereum Launches</h4>
+                                <p>Smart contracts revolutionize blockchain technology</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>2021: Institutional Adoption</h4>
+                                <p>Major companies begin integrating crypto into financial strategies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-</main>
+    </main>
 
-<footer>
-    <p>&copy; 2025 Digital Finance Hub</p>
-</footer>
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">LinkedIn</a>
+                <a href="#" class="social-icon">Medium</a>
+            </div>
+            <div class="newsletter-signup">
+                <input type="email" placeholder="Get Crypto Insights">
+                <button>Subscribe</button>
+            </div>
+            <div class="copyright">
+                © 2025 CryptoInsight. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        // Interactive Stats Counter
+        const statsElements = document.querySelectorAll('.stat-value');
+        
+        const animateValue = (element, start, end, duration) => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        statsElements.forEach(el => {
+            const target = parseFloat(el.dataset.target);
+            animateValue(el, 0, target, 2000);
+        });
+
+        // Cursor Trail Effect
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.querySelector('.cursor-trail');
+            trail.style.left = e.clientX + 'px';
+            trail.style.top = e.clientY + 'px';
+        });
+
+        // Dark Mode Toggle
+        const darkModeSwitch = document.getElementById('dark-mode-switch');
+        darkModeSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
 </body>
 </html>
